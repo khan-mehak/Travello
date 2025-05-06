@@ -1,0 +1,32 @@
+<%layout("/layouts/boilerplate.ejs")%>
+
+    <body>
+        <h1>All listings</h1>
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+
+            <%for(let list of allListings){%>
+                <a href="/listings/<%=list._id%>" class="list-link">
+                    <div class="card col list-card">
+                        <img src="<%=list.image%>" class="card-img-top" alt="Error listing image" style="height:20rem">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+
+                            <p class="card-text">
+
+                                <b>
+                                    <%=list.title%>
+                                </b>
+                                <br>
+                                &#8377; <%= list.price ? list.price.toLocaleString("en-IN") : "Price not available" %>
+                                    /day
+
+
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <%}%>
+
+        </div>
+    </body>

@@ -1,0 +1,111 @@
+body{
+    font-family: "Roboto", sans-serif !important;
+    /* css for footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* for footer */
+.container{
+    flex:1;
+}
+
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-location-arrow{
+    color: rgb(218, 36, 45);
+    font-size:2rem;
+}
+
+.nav-link{
+    color: black !important;
+}
+
+.f-info-link a{
+   text-decoration: none;
+   color: black;
+}
+
+.f-info-link a:hover{
+    text-decoration: underline;
+}
+
+.f-info-link,.f-info-social,.f-info-brand{
+    width: 100%;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-social i{
+    font-size:1.2rem;
+    margin-right:1.6rem;
+}
+
+.f-info{
+    text-align: center;
+    height: 8rem;
+    display: flex;
+    background-color: rgb(240, 227, 227);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.list-card{
+    border: none !important;
+    margin: 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit:cover !important
+}
+
+.card-body{
+    padding:0 !important
+}
+
+.card-text{
+    font-weight: 400 !important;
+}
+
+.list-link{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.6;
+    background-color: white;
+}
+
+.add-btn{
+    border: none !important;
+}
+
+
+/* Show */
+
+.show-img{
+    height: 30vh;
+}
+
+.btns{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right:0 ;
+}

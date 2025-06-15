@@ -26,7 +26,7 @@ let url=process.env.MONGO_URL
 const store=mongostore.create({
     mongoUrl:url,
     crypto:{
-        secret:SECRET
+        secret:process.env.SECRET
     },
     touchAfter:24*3600
 })
@@ -38,7 +38,7 @@ store.on("error",()=>{
 
 const sessionOpt={
     store:store,
-    secret:SECRET,
+    secret:process.env.SECRET,
     resave:false,
     saveUninitialized:true,
     cookie:{

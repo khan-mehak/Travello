@@ -1,95 +1,111 @@
 <%layout("/layouts/boilerplate.ejs")%>
 
-    <body>
-       <div class="row ">
-        <!-- offset is used to give spacing from left -->
-        <div class="col-8 offset-2">
-        <h1>Add new Data</h1>
-        <!-- to add styling to new  add bootstrap novalidate and needs-validation -->
-        <form action="/listings" method="post" novalidate class="needs-validation">
-            <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input 
-                type="text" 
-                name="listing[title]" 
-                class="form-control"
-                placeholder="Ex.WanderHome"
-                required>
+<body>
+  <div class="row">
+    <!-- offset is used to give spacing from left -->
+    <div class="col-8 offset-2">
+      <h1>Add new Data</h1>
+      <!-- to add styling to new  add bootstrap novalidate and needs-validation -->
+      <form
+        action="/listings"
+        method="post"
+        novalidate
+        class="needs-validation"
+        enctype="multipart/form-data"
+      >
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            name="listing[title]"
+            class="form-control"
+            placeholder="Ex.WanderHome"
+            required
+          />
 
-                <div class="valid-feedback">Title looks good</div>
-            
-            </div>
-
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea 
-                name="listing[description]" 
-                class="form-control"
-                placeholder="Enter the description"
-                required></textarea>
-
-                <div class="invalid-feedback">Please enter short description</div>
-            </div>
-
-
-            <div class="mb-3">
-                <label for="image" class="form-label">Image</label>
-                <input name="listing[image]" 
-                class="form-control" 
-                placeholder="Enter the image url / link"
-                />
-                <div class="invalid-feedback">Image Url must be valid</div>
-            </div>
-
-
-            <div class="mb-3">
-                <label for="price" class="form-label">Price</label>
-                <input 
-                type="text" 
-                name="listing[price]" 
-                class="form-control" 
-                placeholder="E.g. 500 (Price should be greater than 500)"
-                min="500"
-                required>
-
-                <div class="invalid-feedback">Price should be valid</div>
-            </div>
-
-            
-            <div class="row">
-            <div class="mb-3 col-md-4">
-                <label for="location" class="form-label">Location</label>
-                <input 
-                type="text" 
-                name="listing[location]" 
-                class="form-control" 
-                placeholder="E.g.Mumbai"
-                required>
-
-                <div class="invalid-feedback">Location should be valid</div>
-            </div>
-
-
-            <div class="mb-3 col-md-4">
-                <label for="country" class="form-label">Country</label>
-            <input 
-            type="text" 
-            name="listing[country]" 
-            class="form-control" 
-            placeholder="E.g. India"
-            required>
-
-            <div class="invalid-feedback">Country name should be valid</div>
+          <div class="valid-feedback">Title looks good</div>
         </div>
 
-    </div>
-            
-            <br><br>
-            <button class="btn btn-dark add-btn" type="submit">Add</button>
-            <br><br>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            name="listing[description]"
+            class="form-control"
+            placeholder="Enter the description"
+            required
+          ></textarea>
 
-              
-        </form>
+          <div class="invalid-feedback">Please enter short description</div>
+        </div>
+
+        <!-- <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input
+            name="listing[image]"
+            class="form-control"
+            placeholder="Enter the image url / link"
+          />
+          <div class="invalid-feedback">Image Url must be valid</div>
+        </div> -->
+
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload the Image</label>
+          <input
+            name="listing[image]"
+            class="form-control"
+            placeholder="Enter the image url / link"
+            type="file"
+          />
+          <div class="invalid-feedback">Upload the image</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input
+            type="text"
+            name="listing[price]"
+            class="form-control"
+            placeholder="E.g. 500 (Price should be greater than 500)"
+            min="500"
+            required
+          />
+
+          <div class="invalid-feedback">Price should be valid</div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="location" class="form-label">Location</label>
+            <input
+              type="text"
+              name="listing[location]"
+              class="form-control"
+              placeholder="E.g.Mumbai"
+              required
+            />
+
+            <div class="invalid-feedback">Location should be valid</div>
+          </div>
+
+          <div class="mb-3 col-md-4">
+            <label for="country" class="form-label">Country</label>
+            <input
+              type="text"
+              name="listing[country]"
+              class="form-control"
+              placeholder="E.g. India"
+              required
+            />
+
+            <div class="invalid-feedback">Country name should be valid</div>
+          </div>
+        </div>
+
+        <br /><br />
+        <button class="btn btn-dark add-btn" type="submit">Add</button>
+        <br /><br />
+      </form>
     </div>
-</div>
- </body>
+  </div>
+</body>

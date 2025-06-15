@@ -19,7 +19,7 @@ const flash=require('connect-flash')
 const passport=require('passport')
 const LocalStrategy=require('passport-local')
 const User=require('./models/user.js')
-const MongoStore = require("connect-mongo")
+
 
 let url=process.env.MONGO_URL
 
@@ -32,7 +32,7 @@ const store=mongostore.create({
 })
 
 
-store.on("error",()=>{
+store.on("error",(err)=>{
     console.log("Error in Mongo session store",err)
 })
 
@@ -70,9 +70,18 @@ passport.deserializeUser(User.deserializeUser())
 
 
 //home route
-app.get('/',(req,res)=>{
-    res.send("Hello Project")
+
+app.use((req,res,next)=>{
+    res.locals.success=req.flash("success")
+    res.locals.error=req.flash("error")
+    res.locals.currUser=req.user
+    next()
 })
+
+
+// app.get('/',(req,res)=>{
+//     res.send("Hello Project")
+// })
 
 // app.get('/demouser',async(req,res)=>{
 //     let fakeUser=new User({
@@ -85,13 +94,6 @@ app.get('/',(req,res)=>{
 //     res.send(registerUser)
 // })
 
-
-app.use((req,res,next)=>{
-    res.locals.success=req.flash("success")
-    res.locals.error=req.flash("error")
-    res.locals.currUser=req.user
-    next()
-})
 
 
 app.use('/listings',listingRouter)
